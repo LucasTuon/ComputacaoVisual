@@ -72,7 +72,8 @@
         "01-hello",
         "02-renderer",
         "03-image",
-        "04-invert_image"
+        "04-invert_image",
+        "05-filter_image"
       ],
     }      
   ],
