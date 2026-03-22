@@ -20,13 +20,13 @@ const int filterFinalSize = filter_size * filter_size = 3 * 3 = 9 ---> Quantidad
 const int filterHalfSize = filter_size >> 1 = 3 >> 1 = 1          ---> Vizinhos ao redor do pixel atual
 const float average = 1.0f / filterFinalSize = 0.1111...          ---> Peso de cada pixel do filtro
 
-Índices do filtro:      Índices do filtro relativo ao centro do filtro (col, row):
+Índices do filtro:      Índices do filtro relativo ao centro do filtro (row, col):
 .-----------------.     .--------------------------------------------------------------------.
-|  0  |  1  |  2  |     |  (col - 1, row - 1)  |  (col    , row - 1)  |  (col + 1, row - 1)  |
+|  0  |  1  |  2  |     |  (row - 1, col - 1)  |  (row - 1, col    )  |  (row - 1, col + 1)  |
 |-----|-----|-----|     |----------------------|----------------------|----------------------|
-|  3  |  4  |  5  |     |  (col - 1, row    )  |  (col    , row    )  |  (col + 1, row    )  |
+|  3  |  4  |  5  |     |  (row    , col - 1)  |  (row    , col    )  |  (row    , col + 1)  |
 |-----|-----|-----|     |----------------------|----------------------|----------------------|
-|  6  |  7  |  8  |     |  (col - 1, row + 1)  |  (col    , row + 1)  |  (col + 1, row + 1)  |
+|  6  |  7  |  8  |     |  (row + 1, col - 1)  |  (row + 1, col    )  |  (row + 1, col + 1)  |
 `-----------------´     `--------------------------------------------------------------------´
 
 ---> Obtém os pixels da imagem que "batem" com o filtro.
