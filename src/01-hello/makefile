@@ -3,7 +3,7 @@ TARGET = main
 
 # Atualizar SDL_DIR com o local onde SDL3 esta instalado.
 # Uso da barra '\\' especifico para Windows.
-SDL_DIR = C:\\dev\\compvis\\libs\\SDL3
+SDL_DIR = C:\\dev\\libs\\SDL3
 SDL_INC_DIR = $(SDL_DIR)\\include
 SDL_LIB_DIR = $(SDL_DIR)\\lib
 SDL_DLL_DIR = $(SDL_DIR)\\bin
@@ -27,13 +27,13 @@ all: $(TARGET)
 
 # Comandos especificos para Windows (del, copy).
 clean:
-	del /S *.o
-	del /S $(SDL_DLL_FILE)
-	del /S $(TARGET).exe
+	cmd /c del /S *.o
+	cmd /c del /S $(SDL_DLL_FILE)
+	cmd /c del /S $(TARGET).exe
 
 $(TARGET): $(OBJ)
 	$(CC) $(CFLAGS) $(INC_DIRS) -o $@ $^ $(LDFLAGS) $(LDLIBS)
-	copy $(SDL_DLL_DIR)\\$(SDL_DLL_FILE) .\\$(SDL_DLL_FILE)
+	cmd /c copy $(SDL_DLL_DIR)\\$(SDL_DLL_FILE) .\\$(SDL_DLL_FILE)
 
 %.o: %.c $(INC)
 	$(CC) $(CFLAGS) $(INC_DIRS) -c $< -o $@

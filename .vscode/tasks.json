@@ -1,9 +1,9 @@
 {
   "tasks": [
     {
-      "label": "Compilar exemplo (MinGW: mingw32-make)",
+      "label": "Compilar exemplo (MinGW: make)",
       "type": "shell",
-      "command": "mingw32-make",
+      "command": "make",
       "args": [],
       "options": {
         "cwd": "${workspaceFolder}/src/${input:EscolherExemplo}"
@@ -16,9 +16,9 @@
       }
     },
     {
-      "label": "Compilar e rodar exemplo (MinGW: mingw32-make -> main.exe)",
+      "label": "Compilar e rodar exemplo (MinGW: make -> main.exe)",
       "type": "shell",
-      "command": "mingw32-make; if ($?) { .\\main.exe }",
+      "command": "make; if ($?) { .\\main.exe }",
       "args": [],
       "options": {
         "cwd": "${workspaceFolder}/src/${input:EscolherExemplo}"
@@ -32,9 +32,9 @@
       },
     },
     {
-      "label": "Limpar exemplo (MinGW: mingw32-make clean)",
+      "label": "Limpar exemplo (MinGW: make clean)",
       "type": "shell",
-      "command": "mingw32-make clean",
+      "command": "make clean",
       "args": [],
       "options": {
         "cwd": "${workspaceFolder}/src/${input:EscolherExemplo}"
@@ -47,9 +47,9 @@
       },
     },
     {
-      "label": "Limpar todos os exemplos (MinGW: mingw32-make clean)",
+      "label": "Limpar todos os exemplos (MinGW: make clean)",
       "type": "shell",
-      "command": "Get-ChildItem -Path src -Directory | ForEach-Object { Write-Host \"Limpando $($_.Name)...\"; mingw32-make -C $_.FullName clean }",
+      "command": "Get-ChildItem -Path src -Directory | ForEach-Object { Write-Host \"Limpando $($_.Name)...\"; make -C $_.FullName clean }",
       "args": [],
       "options": {
         "shell": {
