@@ -18,6 +18,7 @@ void shutdown(void)
 //------------------------------------------------------------------------------
 int main(int argc, char *argv[])
 {
+
   atexit(shutdown);
 
   const char* WINDOW_TITLE = "Hello, SDL";
@@ -37,12 +38,16 @@ int main(int argc, char *argv[])
     return SDL_APP_FAILURE;
   }
 
+  // Looping de eventos
+  // O programa ficará rodando até que o usuário feche a janela
   SDL_Event event;
   bool isRunning = true;
   while (isRunning)
   {
+    // Verifica se há eventos na fila de eventos
     while (SDL_PollEvent(&event))
     {
+      // Se o evento for do tipo SDL_EVENT_QUIT, significa que o usuário fechou a janela
       if (event.type == SDL_EVENT_QUIT)
       {
         isRunning = false;
